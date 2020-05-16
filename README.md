@@ -26,7 +26,7 @@ Details:
 
 The versions vary two hash tables. The most important one is CLMap,
 the source of a performance hotspot used in the function
-`distBuildLocalMapCounter()' (BLMC). BLMC is a loop that inspects the
+`distBuildLocalMapCounter' (BLMC). BLMC is a loop that inspects the
 neighboring communities for each vertex. BLMC, which is called for
 each (local) vertex, loops over all edges for the vertex and
 calculates the (local) contribution to each community's
