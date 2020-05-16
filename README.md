@@ -54,7 +54,15 @@ Results are given in the ISPASS paper above.
 
 The variants are as follows.
 
-* Version 1 (v1), original. CLMap = `stl::unordered_map`.
+* Version 1 (v1). CLMap = `stl::unordered_map`.
+
+  This is the original code with new hash map types to facilitate type
+  parameteriazation. The orginal code is based on:
+
+  ```sh
+    git clone https://github.com/Exa-Graph/miniVite
+    git checkout fb73ce99b355a70ab7951990b47224eae208acd4
+  ```
 
 * Version 2 (v2):
   - CLMap = `tsl::hopscotch` (default initial size).
