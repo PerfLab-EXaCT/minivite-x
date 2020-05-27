@@ -13,6 +13,7 @@ Detection. The three variants vary the implementations of key hash
 tables used in the algorithm.
 
 miniVite-x was developed for the following paper:
+
   Ozgur O. Kilic, Nathan R. Tallent, and Ryan D. Friese, "Rapid memory footprint access diagnostics," in Proc. of the 2020 IEEE Intl. Symp. on Performance Analysis of Systems and Software, IEEE Computer Society, May 2020.
 
 Contacts:
