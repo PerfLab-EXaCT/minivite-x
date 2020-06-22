@@ -9,8 +9,11 @@ miniVite-x
 
 miniVite-x consists of three different variants of miniVite
 (https://github.com/Exa-Graph/miniVite), a mini-app for Community
-Detection. The three variants vary the implementations of key hash
-tables used in the algorithm.
+Detection. miniVite-x has been designed to demonstrate and validate
+memory analysis tools. The three variants vary the implementations of
+key hash tables used in the algorithm. Due to different memory access
+patterns, there can be significant performance differences between three
+variants.
 
 miniVite-x was developed for the following paper:
   - Ozgur O. Kilic, Nathan R. Tallent, and Ryan D. Friese, "Rapid memory footprint access diagnostics," in Proc. of the 2020 IEEE Intl. Symp. on Performance Analysis of Systems and Software, IEEE Computer Society, May 2020.
