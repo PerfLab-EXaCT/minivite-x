@@ -7,12 +7,13 @@ miniVite-x
 
 * https://gitlab.pnnl.gov/perf-lab-hub/miniVite-x
 
-miniVite-x consists of three different variants of miniVite
+miniVite-x is a mini-application that has been designed to demonstrate
+different memory patterns and test memory analysis tools.  It consists
+of three different variants of miniVite
 (https://github.com/Exa-Graph/miniVite), a mini-app for Community
-Detection. miniVite-x has been designed to demonstrate and validate
-memory analysis tools. The three variants vary the implementations of
-key hash tables used in the algorithm. Due to different memory access
-patterns, there can be significant performance differences between three
+Detection. The three variants vary the implementations of key hash
+tables used in the algorithm. Due to different memory access patterns,
+there can be significant performance differences between three
 variants.
 
 miniVite-x was developed for the following paper:
