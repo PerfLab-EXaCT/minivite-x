@@ -1,0 +1,9 @@
+README.md  ident
+
+#*.md      ident
+#*.txt     ident
+#[mM]ake*  ident
+#*.cpp     ident
+#*.hpp     ident
+#*.C       ident
+#*.[ch]    ident
