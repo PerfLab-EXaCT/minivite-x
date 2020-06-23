@@ -5,11 +5,12 @@
 miniVite-x
 =============================================================================
 
-* https://gitlab.pnnl.gov/perf-lab-hub/miniVite-x
+*Home*: https://gitlab.pnnl.gov/perf-lab-hub/miniVite-x
 
-miniVite-x is a mini-application that has been designed to demonstrate
-different memory patterns and test memory analysis tools.  It consists
-of three different variants of miniVite
+
+*About*: miniVite-x is a mini-application that has been designed to
+demonstrate different memory patterns and test memory analysis tools.
+It consists of three different variants of miniVite
 (https://github.com/Exa-Graph/miniVite), a mini-app for Community
 Detection. The three variants vary the implementations of key hash
 tables used in the algorithm. Due to different memory access patterns,
@@ -17,11 +18,12 @@ there can be significant performance differences between three
 variants.
 
 miniVite-x was developed for the following paper:
-  - Ozgur O. Kilic, Nathan R. Tallent, and Ryan D. Friese, "Rapid memory footprint access diagnostics," in Proc. of the 2020 IEEE Intl. Symp. on Performance Analysis of Systems and Software, IEEE Computer Society, May 2020.
+  > Ozgur O. Kilic, Nathan R. Tallent, and Ryan D. Friese, "Rapid memory footprint access diagnostics," in Proc. of the 2020 IEEE Intl. Symp. on Performance Analysis of Systems and Software, IEEE Computer Society, May 2020.
 
-Contacts:
-- Nathan R. Tallent <tallent@pnnl.gov>
-- Ozgur Kilic <ozgur.kilic@pnnl.gov>
+
+*Contacts*: _firstname_._lastname_@pnnl.gov
+  - Nathan R. Tallent
+  - Ozgur Kilic
 
 
 -----------------------------------------------------------------------------
@@ -50,7 +52,7 @@ can be far less, resulting in significant performance improvements.
 
 In particular, we swapped the default CLMap implementation with TSL
 hopscotch, a closed hash table implementation of hopscotch hashing
-[1]. We experimented with both TSL hopscotch and TSL robin:
+[^1]. We experimented with both TSL hopscotch and TSL robin:
   - tsl::hopscotch: https://github.com/Tessil/hopscotch-map
   - tsl::robin:     https://github.com/Tessil/robin-map
   - Comments: https://tessil.github.io/2016/08/29/benchmark-hopscotch-map.html
@@ -82,4 +84,4 @@ The variants are as follows.
   vertex. Not shown.
 
 
-[1] M. Herlihy, N. Shavit, and M. Tzafrir, "Hopscotch hashing," in Distributed Computing, G. Taubenfeld, Ed. Berlin, Heidelberg: Springer Berlin Heidelberg, 2008, pp. 350--364.
+[^1] M. Herlihy, N. Shavit, and M. Tzafrir, "Hopscotch hashing," in Distributed Computing, G. Taubenfeld, Ed. Berlin, Heidelberg: Springer Berlin Heidelberg, 2008, pp. 350--364.
