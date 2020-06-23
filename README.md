@@ -1,14 +1,13 @@
 -*-Mode: markdown;-*-
 -----------------------------------------------------------------------------
 
------------------------------------------------------------------------------
 miniVite-x
 =============================================================================
 
-*Home*: https://gitlab.pnnl.gov/perf-lab-hub/miniVite-x
+**Home**: https://gitlab.pnnl.gov/perf-lab-hub/miniVite-x
 
 
-*About*: miniVite-x is a mini-application that has been designed to
+**About**: miniVite-x is a mini-application that has been designed to
 demonstrate different memory patterns and test memory analysis tools.
 It consists of three different variants of miniVite
 (https://github.com/Exa-Graph/miniVite), a mini-app for Community
@@ -21,12 +20,12 @@ miniVite-x was developed for the following paper:
   > Ozgur O. Kilic, Nathan R. Tallent, and Ryan D. Friese, "Rapid memory footprint access diagnostics," in Proc. of the 2020 IEEE Intl. Symp. on Performance Analysis of Systems and Software, IEEE Computer Society, May 2020.
 
 
-*Contacts*: _firstname_._lastname_@pnnl.gov
+**Contacts**: (_firstname_._lastname_@pnnl.gov)
   - Nathan R. Tallent
   - Ozgur Kilic
 
 
------------------------------------------------------------------------------
+
 Details:
 =============================================================================
 
