@@ -44,7 +44,7 @@ all: $(TARGET_L)
 
 
 $(TARGET_L) : $(TARGET)-%: main.cpp
-	$(CXX) -D DSPL_VERSION=\"dspl-$(*F).hpp\" $(OPTFLAGS) $(LNFLAGS) -o $@ $^
+	$(CXX) -D DSPL_VERSION=\"dspl-$(*F).hpp\" $(CXXFLAGS) $(LNFLAGS) -o $@ $^
 #	$(CXX) -D VERSION=$(*F) $(OPTFLAGS) $(LNFLAGS) -o $@ $^
 
 
