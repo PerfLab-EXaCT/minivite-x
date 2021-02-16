@@ -279,7 +279,9 @@ GraphWeight distBuildLocalMapCounter(const GraphElem e0, const GraphElem e1, CLM
       counter[storedAlready->second] += weight;
     else {
         clmap.insert(CLMap::value_type(tcomm, numUniqueClusters));
-	if (DEBUG_CLMAP) { clmap_sz++; } // tallent (broken for OpenMP!)
+#ifdef DEBUG_CLMAP
+        clmap_sz++; // tallent (broken for OpenMP!)
+#endif
         counter.push_back(weight);
         numUniqueClusters++;
     }
@@ -328,7 +330,9 @@ void distExecuteLouvainIteration(const GraphElem i, const Graph &dg, const std::
 
   if (e0 != e1) {
     clmap.insert(CLMap::value_type(cc, 0));
-    if (DEBUG_CLMAP) { clmap_sz++; } // tallent (broken for OpenMP!)
+#ifdef DEBUG_CLMAP
+    clmap_sz++; // tallent (broken for OpenMP!)
+#endif
     counter.push_back(0.0);
 
     selfLoop =  distBuildLocalMapCounter(e0, e1, clmap, counter, dg, 
@@ -1009,10 +1013,11 @@ void updateRemoteCommunities(const Graph &dg, std::vector<Comm> &localCinfo,
     rcnt += recv_sz[i];
     scnt += send_sz[i];
   }
-#ifdef DEBUG_PRINTF  
+#ifdef DEBUG_PRINTF
   std::cout << "[" << me << "]Total number of remote communities to update: " << scnt << std::endl;
-  if (DEBUG_CLMAP) { std::cout << "[" << me << "]clmap sz: " << clmap_sz << std::endl; }
-#endif
+# ifdef DEBUG_CLMAP
+  std::cout << "[" << me << "]clmap sz: " << clmap_sz << std::endl; }
+# endif
 
   GraphElem currPos = 0;
   std::vector<CommInfo> rdata(rcnt);
@@ -1339,7 +1344,9 @@ GraphWeight distLouvainMethod(const int me, const int nprocs, const Graph &dg,
     t0 = MPI_Wtime();
 #endif
 
-    if (DEBUG_CLMAP) { clmap_sz = 0; } // tallent
+#ifdef DEBUG_CLMAP
+    clmap_sz = 0; // tallent
+#endif
 
 #pragma omp parallel default(none), shared(clusterWeight, localCupdate, currComm, targetComm, \
         vDegree, localCinfo, remoteCinfo, remoteComm, pastComm, dg, remoteCupdate), \

@@ -419,7 +419,10 @@ void distExecuteLouvainIteration(const GraphElem i, const Graph &dg, const std::
 #endif
   targetComm[i] = localTarget;
 
-  if (DEBUG_CLMAP) { clmap_sz_max = std::max(clmap.size(), clmap_sz_max); clmap_sz_ttl += clmap.size(); } // tallent (broken for OpenMP!)
+#ifdef DEBUG_CLMAP // tallent (broken for OpenMP!)
+  clmap_sz_max = std::max(clmap.size(), clmap_sz_max);
+  clmap_sz_ttl += clmap.size();
+#endif
 } // distExecuteLouvainIteration
 
 GraphWeight distComputeModularity(const Graph &g, std::vector<Comm> &localCinfo,
@@ -1010,7 +1013,10 @@ void updateRemoteCommunities(const Graph &dg, std::vector<Comm> &localCinfo,
   }
 #ifdef DEBUG_PRINTF
   std::cout << "[" << me << "]Total number of remote communities to update: " << scnt << std::endl;
-  if (DEBUG_CLMAP) { std::cout << "[" << me << "]clmap sz max: " << clmap_sz_max << std::endl; std::cout << "[" << me << "]clmap sz ttl: " << clmap_sz_ttl << std::endl; }
+# ifdef DEBUG_CLMAP
+  std::cout << "[" << me << "]clmap sz max: " << clmap_sz_max << std::endl;
+  std::cout << "[" << me << "]clmap sz ttl: " << clmap_sz_ttl << std::endl;
+# endif
 #endif
 
   GraphElem currPos = 0;
@@ -1338,7 +1344,9 @@ GraphWeight distLouvainMethod(const int me, const int nprocs, const Graph &dg,
     t0 = MPI_Wtime();
 #endif
 
-    if (DEBUG_CLMAP) { clmap_sz_max = 0; clmap_sz_ttl = 0; } // tallent
+#ifdef DEBUG_CLMAP
+    clmap_sz_max = 0; clmap_sz_ttl = 0; // tallent
+#endif
 
 #pragma omp parallel default(none), shared(clusterWeight, localCupdate, currComm, targetComm, \
         vDegree, localCinfo, remoteCinfo, remoteComm, pastComm, dg, remoteCupdate), \
