@@ -13,9 +13,9 @@ MYINFO = -DDEBUG_PRINTF -DPRINT_DIST_STATS
 OPTFLAGS = -O3 -fopenmp \
 	-DCHECK_NUM_EDGES \
         -I./lib \
-	$(MYINFO) -DDEBUG_CLMAP=1
+	$(MYINFO) #-DDEBUG_CLMAP=1
 
-LNFLAGS = -static-libgcc -static-libstdc++
+LNFLAGS = #-static-libgcc -static-libstdc++
 
 # -fopenmp
 

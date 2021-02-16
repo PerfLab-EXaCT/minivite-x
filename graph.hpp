@@ -834,8 +834,8 @@ class GenerateRGG
                 for (GraphElem k = 0; k < pnrande; k++) {
 
                     // randomly pick start/end vertex and target from my list
-                    const GraphElem i = (GraphElem)IR(re, std::uniform_int_distribution<>::param_type{0, (n_- 1)});
-                    const GraphElem g_j = (GraphElem)JR(re, std::uniform_int_distribution<>::param_type{0, (nv_- 1)});
+                  const GraphElem i = (GraphElem)IR(re, std::uniform_int_distribution<>::param_type{0, (int)(n_- 1)});
+                  const GraphElem g_j = (GraphElem)JR(re, std::uniform_int_distribution<>::param_type{0, (int)(nv_- 1)});
                     const int target = g->get_owner(g_j);
                     const GraphElem j = g->global_to_local(g_j, target); // local
 
