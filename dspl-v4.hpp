@@ -1018,6 +1018,7 @@ void updateRemoteCommunities(const Graph &dg, std::vector<Comm> &localCinfo,
 # ifdef DEBUG_CLMAP
   std::cout << "[" << me << "]clmap sz: " << clmap_sz << std::endl;
 # endif
+#endif
 
   GraphElem currPos = 0;
   std::vector<CommInfo> rdata(rcnt);
