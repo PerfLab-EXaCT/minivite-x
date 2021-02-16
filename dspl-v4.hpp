@@ -1016,7 +1016,7 @@ void updateRemoteCommunities(const Graph &dg, std::vector<Comm> &localCinfo,
 #ifdef DEBUG_PRINTF
   std::cout << "[" << me << "]Total number of remote communities to update: " << scnt << std::endl;
 # ifdef DEBUG_CLMAP
-  std::cout << "[" << me << "]clmap sz: " << clmap_sz << std::endl; }
+  std::cout << "[" << me << "]clmap sz: " << clmap_sz << std::endl;
 # endif
 
   GraphElem currPos = 0;
