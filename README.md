@@ -86,3 +86,26 @@ The variants are as follows.
 
 
 [^1] M. Herlihy, N. Shavit, and M. Tzafrir, "Hopscotch hashing," in Distributed Computing, G. Taubenfeld, Ed. Berlin, Heidelberg: Springer Berlin Heidelberg, 2008, pp. 350--364.
+
+
+Build and Install:
+=============================================================================
+
+0. Requires: MPI + OpenMP support.
+
+1. Obtain
+   ```
+   git clone https://gitlab.pnnl.gov/perf-lab/minivite-x.git
+   ```
+
+2. Edit makefile for compiler and flags (`OPTFLAGS`)
+
+3. Build
+   ```
+   make
+   ```
+
+4. Test (using one MPI rank):
+   ```
+   ./minivite-v{version} -n 300000
+   ```
