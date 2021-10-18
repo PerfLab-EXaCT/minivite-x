@@ -6,7 +6,7 @@ $Id$
 miniVite-x
 =============================================================================
 
-**Home**: https://gitlab.pnnl.gov/perf-lab-hub/miniVite-x
+**Home**: https://gitlab.pnnl.gov/perf-lab/miniVite-x
 
 
 **About**: miniVite-x is a mini-application that has been designed to
