@@ -98,9 +98,9 @@ void distSumVertexDegree(const Graph &g, std::vector<GraphWeight> &vDegree, std:
   const GraphElem nv = g.get_lnv();
 
 #ifdef OMP_SCHEDULE_RUNTIME
-#pragma omp parallel for default(none), shared(g, vDegree, localCinfo), schedule(runtime)
+#pragma omp parallel for default(shared), shared(g, vDegree, localCinfo), schedule(runtime)
 #else
-#pragma omp parallel for default(none), shared(g, vDegree, localCinfo), schedule(guided)
+#pragma omp parallel for default(shared), shared(g, vDegree, localCinfo), schedule(guided)
 #endif
   for (GraphElem i = 0; i < nv; i++) {
     GraphElem e0, e1;
@@ -129,9 +129,9 @@ GraphWeight distCalcConstantForSecondTerm(const std::vector<GraphWeight> &vDegre
   const size_t vsz = vDegree.size();
 
 #ifdef OMP_SCHEDULE_RUNTIME
-#pragma omp parallel for default(none), shared(vDegree), reduction(+: localWeight) schedule(runtime)
+#pragma omp parallel for default(shared), shared(vDegree), reduction(+: localWeight) schedule(runtime)
 #else
-#pragma omp parallel for default(none), shared(vDegree), reduction(+: localWeight) schedule(static)
+#pragma omp parallel for default(shared), shared(vDegree), reduction(+: localWeight) schedule(static)
 #endif  
   for (GraphElem i = 0; i < vsz; i++)
     localWeight += vDegree[i]; // Local reduction
@@ -152,9 +152,9 @@ void distInitComm(std::vector<GraphElem> &pastComm, std::vector<GraphElem> &curr
 #endif
 
 #ifdef OMP_SCHEDULE_RUNTIME
-#pragma omp parallel for default(none), shared(pastComm, currComm), schedule(runtime)
+#pragma omp parallel for default(shared), shared(pastComm, currComm), schedule(runtime)
 #else
-#pragma omp parallel for default(none), shared(pastComm, currComm), schedule(static)
+#pragma omp parallel for default(shared), shared(pastComm, currComm), schedule(static)
 #endif
   for (GraphElem i = 0L; i < csz; i++) {
     pastComm[i] = i + base;
@@ -444,10 +444,10 @@ GraphWeight distComputeModularity(const Graph &g, std::vector<Comm> &localCinfo,
 #endif
 
 #ifdef OMP_SCHEDULE_RUNTIME
-#pragma omp parallel for default(none), shared(clusterWeight, localCinfo), \
+#pragma omp parallel for default(shared), shared(clusterWeight, localCinfo), \
   reduction(+: le_xx), reduction(+: la2_x) schedule(runtime)
 #else
-#pragma omp parallel for default(none), shared(clusterWeight, localCinfo), \
+#pragma omp parallel for default(shared), shared(clusterWeight, localCinfo), \
   reduction(+: le_xx), reduction(+: la2_x) schedule(static)
 #endif
   for (GraphElem i = 0L; i < nv; i++) {
@@ -872,10 +872,10 @@ void fillRemoteCommunities(const Graph &dg, const int me, const int nprocs,
 #endif
 
 #ifdef OMP_SCHEDULE_RUNTIME
-#pragma omp parallel for default(none), shared(rcsizes, rcomms, localCinfo, sinfo), \
+#pragma omp parallel for default(shared), shared(rcsizes, rcomms, localCinfo, sinfo), \
           firstprivate(i, rpos), schedule(runtime)
 #else
-#pragma omp parallel for default(none), shared(rcsizes, rcomms, localCinfo, sinfo), \
+#pragma omp parallel for default(shared), shared(rcsizes, rcomms, localCinfo, sinfo), \
           firstprivate(i, rpos), schedule(guided)
 #endif
           for (GraphElem j = 0; j < rcsizes[i]; j++) {
@@ -1104,9 +1104,9 @@ void exchangeVertexReqs(const Graph &dg, size_t &ssz, size_t &rsz,
   std::vector<std::unordered_set<GraphElem>> parray(nprocs);
 
 #ifdef USE_OPENMP_LOCK
-#pragma omp parallel default(none), shared(dg, locks, parray)
+#pragma omp parallel default(shared), shared(dg, locks, parray)
 #else
-#pragma omp parallel default(none), shared(dg, parray)
+#pragma omp parallel default(shared), shared(dg, parray)
 #endif
   {
 #ifdef OMP_SCHEDULE_RUNTIME
@@ -1349,7 +1349,7 @@ GraphWeight distLouvainMethod(const int me, const int nprocs, const Graph &dg,
     clmap_sz = 0; // tallent
 #endif
 
-#pragma omp parallel default(none), shared(clusterWeight, localCupdate, currComm, targetComm, \
+#pragma omp parallel default(shared), shared(clusterWeight, localCupdate, currComm, targetComm, \
         vDegree, localCinfo, remoteCinfo, remoteComm, pastComm, dg, remoteCupdate), \
     firstprivate(constantForSecondTerm)
     {
@@ -1388,11 +1388,11 @@ GraphWeight distLouvainMethod(const int me, const int nprocs, const Graph &dg,
         prevMod = lower;
 
 #ifdef OMP_SCHEDULE_RUNTIME
-#pragma omp parallel for default(none) \
+#pragma omp parallel for default(shared) \
     shared(pastComm, currComm, targetComm) \
     schedule(runtime)
 #else
-#pragma omp parallel for default(none) \
+#pragma omp parallel for default(shared) \
     shared(pastComm, currComm, targetComm) \
     schedule(static)
 #endif
