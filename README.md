@@ -105,7 +105,19 @@ Build and Install:
    make
    ```
 
-4. Test (using one MPI rank):
+4. Test:
+  
+   Limitation: Synthetic graph generation (shown) is MPI parallel but not thread parallel. (The alternative is very large graph input files.)
+  
    ```
-   ./minivite-v{version} -n 300000
+   # Sanity check with single MPI rank
+   ./miniVite-v1 -n 30000
+   
+   # Scaling across single node is approximately the following
+   OMP_NUM_THREADS=2 mpiexec -n x ./miniVite-v1 -n $((300000*x))
+  
+   # Examples:
+   OMP_NUM_THREADS=2 mpiexec -n 16 ./miniVite-v1 -n $((300000*12))
+  
+   OMP_NUM_THREADS=2 mpiexec -n 16 ./miniVite-v1 -n $((300000*20))
    ```
