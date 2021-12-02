@@ -111,7 +111,7 @@ Build and Install:
   
    ```
    # Sanity check: single MPI rank and one thread
-   OMP_NUM_THREADS=1 ./minivite-v1 -n 300000
+   OMP_NUM_THREADS=1 ./miniVite-v1 -n 300000
    
    # Scaling across single node is approximately the following
    OMP_NUM_THREADS=2 mpiexec -n x ./miniVite-v1 -n $((300000*x))

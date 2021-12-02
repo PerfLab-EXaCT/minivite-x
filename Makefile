@@ -23,7 +23,7 @@ LNFLAGS = -static-libgcc -static-libstdc++
 
 #SNTFLAGS = -std=c++11 -fopenmp -fsanitize=address -O1 -fno-omit-frame-pointer
 
-CXXFLAGS = -std=c++11 -g $(OPTFLAGS)
+CXXFLAGS = -std=c++11 -no-pie -g $(OPTFLAGS)
 
 TARGET = miniVite
 
