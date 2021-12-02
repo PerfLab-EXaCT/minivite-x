@@ -10,9 +10,9 @@ CXX = mpicxx
 
 MYINFO = -DDEBUG_PRINTF -DPRINT_DIST_STATS
 
-OPTFLAGS = -O3 -fopenmp \
+OPTFLAGS = -O3 -g -fopenmp \
 	-DCHECK_NUM_EDGES \
-        -I./lib \
+	-I./lib \
 	$(MYINFO) -DDEBUG_CLMAP=1
 
 LNFLAGS = -static-libgcc -static-libstdc++
