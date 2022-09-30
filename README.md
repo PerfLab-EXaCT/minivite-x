@@ -81,7 +81,7 @@ The variants are as follows.
 * Version 3 (v3): Begin with v2, but CLMap is created with the initial
   size set to the degree of the vertex, to avoid resizing.
 
-* Version 4 (v4): CLMap is created once, and resized for each
+* Version 4 (v4): Begin with v3, but CLMap is created once, and resized for each
   vertex. Not shown.
 
 
