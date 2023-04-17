@@ -27,6 +27,8 @@ miniVite-x was developed for the following paper:
   - Ozgur Kilic
 
 
+**Related**: https://github.com/ECP-ExaGraph/miniVite/tree/diablo-scc
+
 
 Details:
 =============================================================================
