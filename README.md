@@ -21,7 +21,7 @@ miniVite-x was developed for the following paper:
 
 
 **Contacts**: (_firstname_._lastname_@pnnl.gov)
-  - Nathan R. Tallent
+  - Nathan R. Tallent ([www](https://hpc.pnnl.gov/people/tallent)), ([www](https://www.pnnl.gov/people/nathan-tallent))
   - Ozgur Kilic
 
 
