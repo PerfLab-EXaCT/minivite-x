@@ -1,12 +1,10 @@
--*-Mode: markdown;-*-
-
-$Id$
-
+<!-- -*-Mode: markdown;-*- -->
+<!-- $Id$ -->
 
 miniVite-x
 =============================================================================
 
-**Home**: https://gitlab.pnnl.gov/perf-lab/miniVite-x
+**Home**: https://github.com/PerfLab-EXaCT/minivite-x
 
 
 **About**: miniVite-x is a mini-application that has been designed to
