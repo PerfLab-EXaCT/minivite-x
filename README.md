@@ -95,7 +95,7 @@ Build and Install:
 
 1. Obtain
    ```
-   git clone https://gitlab.pnnl.gov/perf-lab/minivite-x.git
+   git clone https://github.com/PerfLab-EXaCT/minivite-x.git
    ```
 
 2. Edit makefile for compiler and flags (`OPTFLAGS`)
